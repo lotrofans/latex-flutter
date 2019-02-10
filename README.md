@@ -4,13 +4,15 @@ Simply perfom following steps
 
 ## Import it
 
-'''dart
+```dart
 import 'package:latex/latex.dart';
-'
+```
 
 ## Load the Widget async
 
-'''dart
+```dart
+  Widget latexWidget;
+
   void loadWidget() async{
     if(latexWidget == null){
       latexWidget = await Latex.getLaTeXWidget("x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}");
@@ -35,8 +37,7 @@ import 'package:latex/latex.dart';
       ),
     );
   }
-
-'
+```
 
 ## important hint
 
