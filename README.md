@@ -1,14 +1,47 @@
 # latex
 
-A new flutter plugin project.
+Simply perfom following steps
 
-## Getting Started
+## Import it
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.io/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+'''dart
+import 'package:latex/latex.dart';
+'
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Load the Widget async
+
+'''dart
+  void loadWidget() async{
+    if(latexWidget == null){
+      latexWidget = await Latex.getLaTeXWidget("x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}");
+      setState(() {
+        
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    loadWidget();
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Plugin example app'),
+        ),
+        body: Center(
+          child: latexWidget == null? CupertinoActivityIndicator() : latexWidget
+
+        ),
+      ),
+    );
+  }
+
+'
+
+## important hint
+
+This plugin uses the following libraries. 
+Special thanks to the developers:
+
+iOS: https://github.com/kostub/iosMath
+Android: https://github.com/noties/jlatexmath-android
