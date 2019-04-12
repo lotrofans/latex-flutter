@@ -19,10 +19,23 @@ class Latex {
       print("widget created!");
       return w;
     }else{
-      var w = AndroidView(viewType: "androidLatexWidget", creationParams: laTeX, creationParamsCodec: StandardMessageCodec(),);
+      var w = AndroidView(viewType: "androidLatexWidget", creationParams: laTeX, creationParamsCodec: StandardMessageCodec());
       return w;
     }
   }
+
+  static Widget getLaTeXWidgetSync(String laTeX){
+    if(Platform.isIOS){
+      print("is ios!");
+      var w = UiKitView(viewType: "iOSLatexWidget", creationParams: laTeX, creationParamsCodec: StandardMessageCodec(),);
+      print("widget created!");
+      return w;
+    }else{
+      var w = AndroidView(viewType: "androidLatexWidget", creationParams: laTeX, creationParamsCodec: StandardMessageCodec());
+      return w;
+    }
+  }
+
 
 
 }
